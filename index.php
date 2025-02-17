@@ -92,7 +92,7 @@ if (!empty($_SESSION)) {
             </article>
             <!-- lien vers livre d'or -->
             <div class="button-index">
-                <a href="/pages/livre-or.php"> <span class="bold">→</span> Voir les commentaires <span class="bold">←</span> </a>
+                <a href="./pages/livre-or.php"> <span class="bold">→</span> Voir les commentaires <span class="bold">←</span> </a>
             </div>
             <!-- lien vers s-quiz game -->
             <div class="button-index">
