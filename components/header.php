@@ -23,8 +23,9 @@ if (!empty($_SESSION)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/style_header-footer.css">
-    <link rel="stylesheet" href="../asset/css/style_index.css">
+    <link rel="stylesheet" href="../assets/css/style_header-footer.css">
+    <link rel="stylesheet" href="../assets/css/style_index.css">
+    <link rel="stylesheet" href="../assets//css//style_livre-dor.css">
     <title>S-Quiz Game</title>
 </head>
 
@@ -35,15 +36,15 @@ if (!empty($_SESSION)) {
             <!-- pas connecté  -->
             <div class="logo-box">
                 <a href="../index.php">
-                    <img src="../asset/img/accueil-logo.png" class="logo-header" alt="connexion" />
+                    <img src="../assets/img/accueil-logo.png" class="logo-header" alt="connexion" />
                 </a>
             </div>
 
-            <img class="quiz-logo" src="../asset/img/titre-logo.png" />
+            <img class="quiz-logo" src="../assets/img/titre-logo.png" />
 
             <div class="logo-login">
                 <a href="../page/connexion.php">
-                    <img src="../asset/img/utilisateur.png">
+                    <img src="../assets/img/utilisateur.png">
                 </a>
             </div>
         <?php else: ?>
@@ -52,18 +53,18 @@ if (!empty($_SESSION)) {
 
             <div class="logo-box">
                 <a href="../index.php">
-                    <img src="../asset/img/accueil-logo.png" class="logo-header" alt="connexion" />
+                    <img src="../assets/img/accueil-logo.png" class="logo-header" alt="connexion" />
                 </a>
             </div>
 
-            <img class="quiz-logo" src="../asset/img/titre-logo.png" />
+            <img class="quiz-logo" src="../assets/img/titre-logo.png" />
 
 
             <form method="post" action="" class="box-login-disconnect">
 
                 <button class="icon-account header-user-logo" type="submit" name="mon-compte">
                     <div class="box-account">
-                        <img src="../asset/img/utilisateur.png" />
+                        <img src="../assets/img/utilisateur.png" />
                     </div>
 
                     <p class="login "><?= "{ " . $_SESSION['userNumber'] . " }" ?></p>
