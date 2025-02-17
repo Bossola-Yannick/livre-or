@@ -18,7 +18,6 @@ if (!empty($_SESSION)) {
 };
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +27,7 @@ if (!empty($_SESSION)) {
 <link rel="stylesheet" href="./assets/css/style_header-footer.css">
 <link rel="stylesheet" href="./assets/css/style_index.css">
 
-<title>S-Quiz Game</title>
+<title>Livre d'or | S-Quiz Game </title>
 </head>
 
 <body>
@@ -82,10 +81,31 @@ if (!empty($_SESSION)) {
 
     </header>
 
-    <main class="home-page">
+    <main class="main-index">
+
+
+        <h1 class="index-title">Livre d'or</h1>
+        <section class="index-sub-box">
+            <h2>Vos retours d'experience</h2>
+            <article>
+                <p>Partagez avec nous votre experience S-quiz game!</p>
+            </article>
+            <!-- lien vers livre d'or -->
+            <div class="button-index">
+                <a href="/pages/livre-or.php"> <span class="bold">→</span> Voir les commentaires <span class="bold">←</span> </a>
+            </div>
+            <!-- lien vers s-quiz game -->
+            <div class="button-index">
+                <a href="#"> <span class="bold">→</span> Toi aussi, découvre l'experience ! <span class="bold">←</span> </a>
+            </div>
+        </section>
 
 
 
+        <section class="index-box-comments">
+            <!-- affichage des 5 dernieres commentaires -->
+            <p>---affichage des 5 dernieres commentaires---</p>
+        </section>
 
 
     </main>
