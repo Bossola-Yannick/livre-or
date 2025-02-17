@@ -5,14 +5,14 @@ session_start();
 if (!empty($_SESSION)) {
 
     // deconnexion
-    if (isset($_POST['deconnexion'])) {
+    if (isset($_POST['logout'])) {
         $_SESSION = array();
         session_destroy();
         header("Location: index.php");
     }
-    if (isset($_POST['mon-compte'])) {
-        if (isset($_SESSION['user'])) {
-            header("Location: ./page/autor-page.php");
+    if (isset($_POST['user-profil'])) {
+        if (isset($_SESSION['userId'])) {
+            header("Location: ./page/profil.php");
         }
     };
 };
@@ -64,7 +64,7 @@ if (!empty($_SESSION)) {
 
             <form method="post" action="" class="box-login-disconnect">
 
-                <button class="icon-account header-user-logo" type="submit" name="mon-compte">
+                <button class="icon-account header-user-logo" type="submit" name="user-profil">
                     <div class="box-account">
                         <img src="./assets/img/utilisateur.png" />
                     </div>
@@ -72,7 +72,7 @@ if (!empty($_SESSION)) {
                     <p class="login "><?= "{ " . $_SESSION['userNumber'] . " }" ?></p>
                 </button>
 
-                <button class="icon-account" type="submit" name="deconnexion">
+                <button class="icon-account" type="submit" name="logout">
                     <img src="./assets/img/deconnexion.png" alt="deconnexion" />
                 </button>
 
