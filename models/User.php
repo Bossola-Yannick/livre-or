@@ -38,10 +38,6 @@ class User extends Bdd
             $signUpStmt = $signUpStmt->fetch(PDO::FETCH_ASSOC);
 
             $_SESSION['message']  = "Inscription réussie !";
-            $_SESSION['userId'] = $signUpStmt['id'];
-
-
-            var_dump($_SESSION);
 
             header("location:connexion.php");
         }
@@ -150,4 +146,4 @@ class User extends Bdd
 // $test = new User();
 
 // $test->updateUserPassword(2, '123', 'test');
-// var_dump($_SESSION);
+// $test->userSignUp('mike', 'test');
