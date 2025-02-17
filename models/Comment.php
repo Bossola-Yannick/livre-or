@@ -33,14 +33,22 @@ class Comment extends Bdd
         $delete = $this->bdd->prepare($sql);
         $delete->execute();
     }
-
-    // récupération de tout les commentaire
-    public function getAllComments()
+    // comptage du nombre de commentaire
+    public function countComment()
+    {
+        $sql = "SELECT COUNT(id) as nbComment FROM comment";
+        $getCount = $this->bdd->prepare($sql);
+        $getCount->execute();
+        return $getCount->fetchAll(PDO::FETCH_ASSOC);;
+    }
+    // récupération de tout les commentaire et pagination
+    public function getAllComments($whichPage, $perPage)
     {
         $sql = "SELECT comment.id, comment.comment, comment.date, user.login
                 FROM comment
                 JOIN user ON comment.id_user = user.id
-                ORDER BY date DESC";
+                ORDER BY date DESC
+                LIMIT " . (($whichPage - 1) * $perPage) . ",$perPage";
         $getAll = $this->bdd->prepare($sql);
         $getAll->execute();
         return $getAll->fetchAll(PDO::FETCH_ASSOC);
