@@ -1,0 +1,49 @@
+.bold {
+  font-size: 2.5rem;
+}
+.livre-dor {
+  text-align: center;
+}
+.livre-dor-titre {
+  font-size: 4.5rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+.button-new-comment {
+  background-color: #106d61;
+  border: 1px solid #587f7a;
+  box-shadow: 0px 9px 30px 0px rgba(201, 201, 201, 0.483) inset;
+  min-width: 8rem;
+  padding: 0.5rem 1rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.box-comment {
+  width: 50%;
+  border: 3px solid #587f7a;
+  border-radius: 2rem;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+.box-comment-bottom {
+  display: flex;
+  justify-content: space-around;
+}
+.comment {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.5rem;
+}
+.box-comment-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
+}

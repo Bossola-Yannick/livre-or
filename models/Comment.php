@@ -1,5 +1,5 @@
 <?php
-include_once("./Bdd.php");
+include_once(__DIR__ . "/Bdd.php");
 
 
 class Comment extends Bdd
@@ -70,7 +70,3 @@ class Comment extends Bdd
         return $getAll->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
-$test = new Comment();
-$result = $test->getAllComments();
-var_dump($result);
