@@ -44,7 +44,7 @@ class Comment extends Bdd
     // récupération de tout les commentaire et pagination
     public function getAllComments($whichPage, $perPage)
     {
-        $sql = "SELECT comment.id, comment.comment, comment.date, user.login
+        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y %H:%i:%s\") as date, user.login
                 FROM comment
                 JOIN user ON comment.id_user = user.id
                 ORDER BY date DESC
@@ -56,7 +56,7 @@ class Comment extends Bdd
     // récupération des 5 dernier commentaires
     public function getfiveLastComment()
     {
-        $sql = "SELECT comment.id, comment.comment, comment.date, user.login
+        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y\") as date, user.login
                 FROM comment
                 JOIN user ON comment.id_user = user.id
                 ORDER BY date DESC
@@ -68,11 +68,25 @@ class Comment extends Bdd
     // récupération des 5 dernier commentaires
     public function getAllCommentByUser($userId)
     {
-        $sql = "SELECT comment.id, comment.comment, comment.date, user.login
+        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y\") as date, user.login
                 FROM comment
                 JOIN user ON comment.id_user = user.id
                 WHERE user.id = $userId
                 ORDER BY date DESC";
+        $getAll = $this->bdd->prepare($sql);
+        $getAll->execute();
+        return $getAll->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // récupération de tout les commentaires avec un mot de recherche
+    public function getAllCommentsSearch($word, $whichPage, $perPage)
+    {
+        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y\") as date, user.login
+                FROM comment
+                JOIN user ON comment.id_user = user.id
+                WHERE comment LIKE '%$word%'
+                ORDER BY date DESC
+                LIMIT " . (($whichPage - 1) * $perPage) . ",$perPage";
         $getAll = $this->bdd->prepare($sql);
         $getAll->execute();
         return $getAll->fetchAll(PDO::FETCH_ASSOC);
