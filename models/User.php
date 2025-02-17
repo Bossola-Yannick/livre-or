@@ -13,12 +13,8 @@ class User extends Bdd
     }
 
     // Methode inscription
-    public function userInscription($userLogin, $userPass)
+    public function userSignUp($userLogin, $userPass)
     {
-        // test
-        $userPass = password_hash($userPass, PASSWORD_BCRYPT);
-        // fin test
-
         $checkStmt = "SELECT id 
         FROM user
         WHERE login = :userLogin";
@@ -42,8 +38,12 @@ class User extends Bdd
             $signUpStmt = $signUpStmt->fetch(PDO::FETCH_ASSOC);
 
             $_SESSION['message']  = "Inscription réussie !";
+            $_SESSION['userId'] = $signUpStmt['id'];
 
-            // header("location:connexion.php");
+
+            var_dump($_SESSION);
+
+            header("location:connexion.php");
         }
     }
 
