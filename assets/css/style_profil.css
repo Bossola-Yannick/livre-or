@@ -6,10 +6,12 @@
     gap: 3rem;
 }
 
-/* .error-profil {
-    width: 100%;
-    font-size: 3rem;
-} */
+.msg-show {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
 
 .profil-infos {
     width: 100%;
