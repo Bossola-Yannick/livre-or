@@ -75,8 +75,8 @@
 }
 
 /*------------------ CSS page commentaire ------------------*/
-.main-comment {
-  min-height: 74.5vh;
+main {
+  min-height: 80vh;
 }
 textarea {
   resize: none;
@@ -104,4 +104,11 @@ textarea {
   color: #ad3559;
   font-size: 2rem;
   font-weight: 800;
+}
+
+/*------------------ Media queries ------------------*/
+@media screen and (max-width: 1200px) {
+  .box-comment {
+    width: 80%;
+  }
 }
