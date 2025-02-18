@@ -59,6 +59,7 @@ class User extends Bdd
         if (password_verify($userPass, $userLogin['password']) ||  $userPass == $userLogin['password']) {
             session_start();
             $_SESSION['userId'] = $userLogin['id'];
+            $_SESSION['userLogin'] = $userLogin['login'];
             $_SESSION['userRole'] = $userLogin['role'];
             $userNum = new User();
             $_SESSION['userNumber'] = $userNum->changeNumber($userLogin['id']);
@@ -84,17 +85,31 @@ class User extends Bdd
     }
 
     // Méthode pour update user login
-    public function updateUserLogin($userId, $newLogin): void
+    public function updateUserLogin($userLogin, $newLogin): void
     {
-        $newLoginStmt = "UPDATE user SET login = :newLogin
-        WHERE user.id = :userId";
-        $newLoginStmt = $this->bdd->prepare($newLoginStmt);
-        $newLoginStmt->execute([
-            ':userId' => $userId,
+        $checkStmt = "SELECT user.login 
+        FROM user
+        WHERE login = :newLogin";
+        $checkStmt = $this->bdd->prepare($checkStmt);
+        $checkStmt->execute([
             ':newLogin' => $newLogin
         ]);
 
-        $newLogin = $newLoginStmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($checkStmt->fetch()) {
+            $_SESSION['message']  = "Ce pseudo est déjà utilisé !";
+        } else {
+
+            $newLoginStmt = "UPDATE user SET login = :newLogin
+            WHERE login = :userLogin";
+            $newLoginStmt = $this->bdd->prepare($newLoginStmt);
+            $newLoginStmt->execute([
+                ':userLogin' => $userLogin,
+                ':newLogin' => $newLogin
+            ]);
+
+            $_SESSION['message'] = "Pseudo modifié";
+            $_SESSION['userLogin'] = $newLogin;
+        }
     }
 
     // Méthode pour vérifier et update le mot de passe
@@ -148,4 +163,3 @@ class User extends Bdd
 
 // $test->updateUserPassword(2, '123', 'test');
 // $test->userSignUp('mike', 'test');
-
