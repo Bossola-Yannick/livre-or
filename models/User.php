@@ -13,12 +13,9 @@ class User extends Bdd
     }
 
     // Methode inscription
-    public function userInscription($userLogin, $userPass)
-    {
-        // test
-        $userPass = password_hash($userPass, PASSWORD_BCRYPT);
-        // fin test
 
+    public function userSignUp($userLogin, $userPass)
+    {
         $checkStmt = "SELECT id 
         FROM user
         WHERE login = :userLogin";
@@ -43,7 +40,7 @@ class User extends Bdd
 
             $_SESSION['message']  = "Inscription réussie !";
 
-            // header("location:connexion.php");
+            header("location:connexion.php");
         }
     }
 
@@ -150,4 +147,5 @@ class User extends Bdd
 // $test = new User();
 
 // $test->updateUserPassword(2, '123', 'test');
-// var_dump($_SESSION);
+// $test->userSignUp('mike', 'test');
+

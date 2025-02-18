@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if (!empty($_SESSION)) {
 
     // deconnexion
@@ -12,11 +11,10 @@ if (!empty($_SESSION)) {
     }
     if (isset($_POST['user-profil'])) {
         if (isset($_SESSION['userId'])) {
-            header("Location: ./page/profil.php");
+            header("Location: ./pages/profil.php");
         }
     };
 };
-
 
 ?>
 
@@ -33,7 +31,7 @@ if (!empty($_SESSION)) {
 <body>
 
     <header class="header">
-        <?php if (!isset($_SESSION['user'])): ?>
+        <?php if (!isset($_SESSION['userId'])): ?>
 
             <!-- pas connecté  -->
             <div class="logo-box">
@@ -45,7 +43,7 @@ if (!empty($_SESSION)) {
             <img class="quiz-logo" src="./assets/img/titre-logo.png" />
 
             <div class="logo-login">
-                <a href="./page/connexion.php">
+                <a href="./pages/connexion.php">
                     <img src="./assets/img/utilisateur.png">
                 </a>
             </div>
@@ -67,7 +65,6 @@ if (!empty($_SESSION)) {
                     <div class="box-account">
                         <img src="./assets/img/utilisateur.png" />
                     </div>
-                    <!-- penser a refair une session=>userNumber -->
                     <p class="login "><?= "{ " . $_SESSION['userNumber'] . " }" ?></p>
                 </button>
 
