@@ -6,10 +6,18 @@ class User extends Bdd
 {
 
     public $bdd;
+    private string $login;
 
     public function __construct()
     {
         $this->bdd = $this->connexion();
+        $this->login;
+    }
+
+    // Methode get pseudo
+    public function get_login(): string
+    {
+        return $this->login;
     }
 
     // Methode inscription
@@ -59,6 +67,7 @@ class User extends Bdd
         if (password_verify($userPass, $userLogin['password']) ||  $userPass == $userLogin['password']) {
             session_start();
             $_SESSION['userId'] = $userLogin['id'];
+            $this->login = $userLogin['login'];
             $_SESSION['userRole'] = $userLogin['role'];
             $userNum = new User();
             $_SESSION['userNumber'] = $userNum->changeNumber($userLogin['id']);
@@ -148,4 +157,3 @@ class User extends Bdd
 
 // $test->updateUserPassword(2, '123', 'test');
 // $test->userSignUp('mike', 'test');
-
