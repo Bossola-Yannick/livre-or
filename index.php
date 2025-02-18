@@ -1,7 +1,8 @@
 <?php
 session_start();
+include_once("./models/Comment.php");
+include_once("./models/User.php");
 if (!empty($_SESSION)) {
-
     // deconnexion
     if (isset($_POST['logout'])) {
         $_SESSION = array();
@@ -15,6 +16,10 @@ if (!empty($_SESSION)) {
     };
 };
 
+$getLastComment = new Comment();
+$lastComment = $getLastComment->getfiveLastComment();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +27,8 @@ if (!empty($_SESSION)) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./assets/css/style_header-footer.css">
-<link rel="stylesheet" href="./assets/css/style_index.css">
+<link rel="stylesheet" href="./assets/css/style_livre-dor.css">
+<link rel=" stylesheet" href="./assets/css/style_index.css">
 
 <title>Livre d'or | S-Quiz Game </title>
 </head>
@@ -109,9 +115,26 @@ if (!empty($_SESSION)) {
 
 
 
-        <section class="index-box-comments">
+        <section class="section-box-comments">
             <!-- affichage des 5 dernieres commentaires -->
-            <p>---affichage des 5 dernieres commentaires---</p>
+            <p class="display-comment">↓↓ affichage des 5 dernieres commentaires ↓↓</p>
+            <?php foreach ($lastComment as $comment) : ?>
+                <?php
+                $userId = $comment['userId'];
+                $user = new User();
+                $userNumber = $user->changeNumber(intval($userId));
+                ?>
+                <article class="index-box-comment">
+                    <div class="box-comment-top">
+                        <p class="comment"><?= $comment['comment'] ?></p>
+                    </div>
+                    <div class="box-comment-bottom">
+                        <p class="box-comment-info">Posté le : <?= $comment['date'] ?></p>
+                        <p class="box-comment-info"> Par : <?= $comment['login'] . " { " . $userNumber . " }" ?></p>
+                    </div>
+
+                </article>
+            <?php endforeach ?>
         </section>
 
 

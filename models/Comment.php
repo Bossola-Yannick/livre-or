@@ -56,7 +56,7 @@ class Comment extends Bdd
     // récupération des 5 dernier commentaires
     public function getfiveLastComment()
     {
-        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y\") as date, user.login
+        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y\") as date, user.id as userId, user.login
                 FROM comment
                 JOIN user ON comment.id_user = user.id
                 ORDER BY date DESC
