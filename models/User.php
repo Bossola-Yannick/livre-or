@@ -13,6 +13,7 @@ class User extends Bdd
     }
 
     // Methode inscription
+
     public function userSignUp($userLogin, $userPass)
     {
         $checkStmt = "SELECT id 
@@ -147,3 +148,4 @@ class User extends Bdd
 
 // $test->updateUserPassword(2, '123', 'test');
 // $test->userSignUp('mike', 'test');
+
