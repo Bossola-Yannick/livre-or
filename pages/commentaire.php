@@ -7,18 +7,16 @@ if (isset($_POST['postNewComment'])) {
         $_SESSION['emptyComment'] = "Veuillez remplir le champ commentaire avant de validé !";
     } else {
         unset($_SESSION['emptyComment']);
-        $newComment = new Comment();
         $date = new DateTime("now");
         $_SESSION['date'] = $date;
         $newDate = $_SESSION['date']->format('Y-m-d H:i:s');
         $myComment = $_POST['newComment'];
         $userid = $_SESSION['userId'];
+        $newComment = new Comment();
         $newComment->create($myComment, $newDate, $userid);
         header("location: ./livre-or.php");
     }
 }
-
-
 
 ?>
 <?php include '../components/header.php'; ?>

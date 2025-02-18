@@ -1,15 +1,13 @@
 <?php
-include_once(__DIR__ . "/Bdd.php");
+require_once(__DIR__ . "/Bdd.php");
 
 
 class Comment extends Bdd
 {
 
-    public $bdd;
-
     public function __construct()
     {
-        $this->bdd = $this->connexion();
+        parent::__construct($this->bdd);
     }
 
     // creation commentaire

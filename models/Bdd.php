@@ -2,17 +2,20 @@
 
 class Bdd
 {
-    protected string $host = "localhost";
-    protected string $username = "root";
-    protected string $password = "";
-    protected string $dbName = "livreor";
-
-    public function connexion()
+    protected $bdd;
+    public function __construct()
     {
+        $host = "localhost";
+        $username = "root";
+        $password = "";
+        $dbName = "livreor";
+        // $host = "localhost:3306";
+        // $username = "userlivreor";
+        // $password = "livreor13";
+        // $dbName = "yannick-bossola_livreor";
         try {
-            $bdd  = new PDO("mysql:host=$this->host;dbname=$this->dbName;charset=utf8", $this->username, $this->password);
-            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $bdd;
+            $this->bdd  = new PDO("mysql:host=$host:3306;dbname=$dbName;charset=utf8", $username, $password);
+            $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
         }

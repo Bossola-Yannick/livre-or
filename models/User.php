@@ -4,12 +4,13 @@ include_once(__DIR__ . "/Bdd.php");
 
 class User extends Bdd
 {
-
-    public $bdd;
+    public string $login;
+    public string $password;
+    public string $role;
 
     public function __construct()
     {
-        $this->bdd = $this->connexion();
+        parent::__construct($this->bdd);
     }
 
     // Methode inscription
@@ -148,4 +149,3 @@ class User extends Bdd
 
 // $test->updateUserPassword(2, '123', 'test');
 // $test->userSignUp('mike', 'test');
-
