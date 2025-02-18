@@ -1,0 +1,102 @@
+.profil-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+/* .error-profil {
+    width: 100%;
+    font-size: 3rem;
+} */
+
+.profil-infos {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profil-title {
+    width: 100%;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem 1rem 0;
+}
+
+.separator {
+    width: 35%;
+    margin: 2rem auto;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(1, 126, 106, 1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border: none;
+  }
+
+.infos-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.edit-box {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profil-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.profil-text span {
+    padding-left: 2rem;
+    font-weight: normal;
+}
+
+.info-duo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.edit-input {
+    width: 60%;
+    height: 3rem;
+    color: #3a3a3a;
+    border-radius: 12px;
+    border: 2px solid #e1e1e1;
+    padding: 0.8rem;
+}
+
+.edit-input:focus {
+    outline: 2px solid #ffffff ;
+    
+}
+
+@media screen and (max-width: 768px ) {
+
+    
+    .profil-infos {
+        padding: 1rem 0 ;
+        gap : 0.5rem;
+    }
+    .profil-title {
+        font-size: 2rem;
+    }
+
+
+}

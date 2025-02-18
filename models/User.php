@@ -56,7 +56,7 @@ class User extends Bdd
         ]);
         $userLogin = $loginStmt->fetch(PDO::FETCH_ASSOC);
 
-        if (password_verify($userPass, $userLogin['password']) ||  $userPass == $userLogin['password']) {
+        if ($userLogin && (password_verify($userPass, $userLogin['password'])) || ($userLogin && $userPass == $userLogin['password'])) {
             session_start();
             $_SESSION['userId'] = $userLogin['id'];
             $_SESSION['userLogin'] = $userLogin['login'];
