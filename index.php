@@ -97,19 +97,20 @@ $lastComment = $getLastComment->getfiveLastComment();
     <main class="main-index">
 
 
-        <h1 class="index-title">Livre d'or</h1>
+        <h1 class="index-title pink">Livre d'or</h1>
         <section class="index-sub-box">
             <h2>Vos retours d'experience</h2>
             <article>
                 <p>Partagez avec nous votre experience S-quiz game!</p>
             </article>
             <!-- lien vers livre d'or -->
-            <div class="button-index">
-                <a href="./pages/livre-or.php"> <span class="bold">→</span> Voir les commentaires <span class="bold">←</span> </a>
+            <div class="button-index button-index-green">
+                <a href="./pages/livre-or.php"> <span class="pink">→</span> Voir les commentaires <span class="pink">←</span> </a>
             </div>
             <!-- lien vers s-quiz game -->
-            <div class="button-index">
-                <a href="#"> <span class="bold">→</span> Toi aussi, découvre l'experience ! <span class="bold">←</span> </a>
+            <p>Toi aussi, fait l'experience : </p>
+            <div class="button-index button-index-green">
+                <a href="#"> <span class="pink">→</span> S-quiz Game ! <span class="pink">←</span> </a>
             </div>
         </section>
 
