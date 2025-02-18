@@ -17,7 +17,7 @@ if (isset($_POST['submitLogin'])) {
         $userLogin = $_SESSION['userLogin'];
         $newLogin = htmlentities($_POST['newLogin']);
         $newUser->updateUserLogin($userLogin, $newLogin);
-        header('refresh: 1 ; url=profil.php');
+        header('refresh: 2 ; url=profil.php');
     }
 }
 
@@ -28,7 +28,7 @@ if (isset($_POST['submitPass'])) {
         $newPass = htmlentities($_POST['newPass']);
 
         $newUser->updateUserPassword($userId, $currentPass, $newPass);
-        header('refresh: 1 ; url=profil.php');
+        header('refresh: 2 ; url=profil.php');
     }
 }
 
@@ -110,7 +110,7 @@ if (isset($_POST['submitPass'])) {
                     </div>
 
                     <?php if (isset($_SESSION['message'])): ?>
-                        <p><?= $_SESSION['message']; ?></p>
+                        <p class="msg-show"><?= $_SESSION['message']; ?></p>
                     <?php endif; ?>
                 </form>
 
