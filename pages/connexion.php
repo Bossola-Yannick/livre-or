@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
                     <input class="input" type="text" name="pseudo" id="pseudo" value="" placeholder="Entrez votre pseudo" required><br /><br />
                     <label for="" class="label-form">Mot de Passe :</label><br />
                     <input class="input" type="password" name="password" id="password" value="" placeholder="Entrez votre mot de passe" required><br /><br />
-                    <button type="submit" name="submit" class="bouton button-next button-next-green">Valider</button>
+                    <button type="submit" name="submit" class="bouton">Valider</button>
                     <?php if (isset($_SESSION['message'])): ?>
                         <p class="alert"><?= $_SESSION['message'] ?></p>
                     <?php endif; ?>

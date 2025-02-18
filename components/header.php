@@ -24,7 +24,8 @@ if (!empty($_SESSION)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style_header-footer.css">
     <link rel="stylesheet" href="../assets/css/style_index.css">
-    <link rel="stylesheet" href="../assets//css//style_livre-dor.css">
+    <link rel="stylesheet" href="../assets/css/style_livre-dor.css">
+    <link rel="stylesheet" href="../assets/css/style_connexion.css">
     <title>S-Quiz Game</title>
 </head>
 
@@ -42,7 +43,7 @@ if (!empty($_SESSION)) {
             <img class="quiz-logo" src="../assets/img/titre-logo.png" />
 
             <div class="logo-login">
-                <a href="./page/connexion.php">
+                <a href="./connexion.php">
                     <img src="../assets/img/utilisateur.png">
                 </a>
             </div>
