@@ -78,9 +78,11 @@ if (isset($_POST['new-comment'])) {
     <section class="pagination">
         <?php for ($i = 1; $i <= $nbPage; $i++) : ?>
             <?php if ($i == $whichPage) : ?>
-                <span> <?= $i ?> / </span>
+                <span class="selectedPage"> <?= $i ?> → </span>
+            <?php elseif ($i == $nbPage) : ?>
+                <a class="otherPage" href="livre-or.php?p=<?= $i ?>" ?><?= $i ?></a>
             <?php else : ?>
-                <a href="livre-or.php?p=<?= $i ?>" ?><?= $i ?> /</a>
+                <a class="otherPage" href="livre-or.php?p=<?= $i ?>" ?><?= $i ?> →</a>
             <?php endif ?>
         <?php endfor ?>
     </section>

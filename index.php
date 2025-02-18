@@ -118,7 +118,7 @@ $lastComment = $getLastComment->getfiveLastComment();
 
         <section class="section-box-comments">
             <!-- affichage des 5 dernieres commentaires -->
-            <p class="display-comment">↓↓ affichage des 5 dernieres commentaires ↓↓</p>
+            <p class="display-comment">↓↓ affichage des 5 derniers commentaires ↓↓</p>
             <?php foreach ($lastComment as $comment) : ?>
                 <?php
                 $userId = $comment['userId'];

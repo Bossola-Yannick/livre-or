@@ -14,7 +14,7 @@ class Bdd
         // $password = "livreor13";
         // $dbName = "yannick-bossola_livreor";
         try {
-            $this->bdd  = new PDO("mysql:host=$host:3306;dbname=$dbName;charset=utf8", $username, $password);
+            $this->bdd  = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $username, $password);
             $this->bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();

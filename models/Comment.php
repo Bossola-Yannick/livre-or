@@ -79,7 +79,7 @@ class Comment extends Bdd
     // récupération de tout les commentaires avec un mot de recherche
     public function getAllCommentsSearch($word, $whichPage, $perPage)
     {
-        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y\") as date, user.login
+        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y\") as date, user.id as userId, user.login
                 FROM comment
                 JOIN user ON comment.id_user = user.id
                 WHERE comment LIKE '%$word%'
