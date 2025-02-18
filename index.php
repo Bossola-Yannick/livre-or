@@ -1,7 +1,5 @@
 <?php
 session_start();
-$_SESSION['userId'] = 2;
-$_SESSION['userRole'] = "admin";
 if (!empty($_SESSION)) {
 
     // deconnexion
@@ -16,7 +14,6 @@ if (!empty($_SESSION)) {
         }
     };
 };
-
 
 ?>
 
@@ -34,6 +31,7 @@ if (!empty($_SESSION)) {
 
     <header class="header">
         <?php if (!isset($_SESSION['userId'])): ?>
+
             <!-- pas connecté  -->
             <div class="logo-box">
                 <a href="index.php">
@@ -44,7 +42,7 @@ if (!empty($_SESSION)) {
             <img class="quiz-logo" src="./assets/img/titre-logo.png" />
 
             <div class="logo-login">
-                <a href="./page/connexion.php">
+                <a href="./pages/connexion.php">
                     <img src="./assets/img/utilisateur.png">
                 </a>
             </div>
@@ -79,8 +77,7 @@ if (!empty($_SESSION)) {
                     <div class="box-account">
                         <img src="./assets/img/utilisateur.png" />
                     </div>
-                    <!-- penser a refair une session=>userNumber -->
-                    <p class="login "><?= "{ " . $_SESSION['userId'] . " }" ?></p>
+                    <p class="login "><?= "{ " . $_SESSION['userNumber'] . " }" ?></p>
                 </button>
                 <button class="icon-account" type="submit" name="logout">
                     <img src="./assets/img/deconnexion.png" alt="deconnexion" />
