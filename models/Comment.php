@@ -44,7 +44,7 @@ class Comment extends Bdd
     // récupération de tout les commentaire et pagination
     public function getAllComments($whichPage, $perPage)
     {
-        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y %H:%i:%s\") as date, user.login
+        $sql = "SELECT comment.id, comment.comment, DATE_FORMAT(comment.date,\"%d/%m/%Y %H:%i:%s\") as date, user.id as userId, user.login
                 FROM comment
                 JOIN user ON comment.id_user = user.id
                 ORDER BY date DESC

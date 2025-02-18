@@ -1,5 +1,6 @@
 <?php
 include_once("../models/Comment.php");
+include_once("../models/User.php");
 session_start();
 // initialisation des variable pour la pagination
 $perPage = 5;
@@ -56,13 +57,18 @@ if (isset($_POST['new-comment'])) {
             </form>
         <?php endif ?>
         <?php foreach ($allComments as $comment) : ?>
+            <?php
+            $userId = $comment['userId'];
+            $user = new User();
+            $userNumber = $user->changeNumber(intval($userId));
+            ?>
             <article class="box-comment">
                 <div class="box-comment-top">
                     <p class="comment"><?= $comment['comment'] ?></p>
                 </div>
                 <div class="box-comment-bottom">
                     <p class="box-comment-info">Posté le : <?= $comment['date'] ?></p>
-                    <p class="box-comment-info"> Par : <?= $comment['login'] ?></p>
+                    <p class="box-comment-info"> Par : <?= $comment['login'] . " { " . $userNumber . " }" ?></p>
                 </div>
 
             </article>

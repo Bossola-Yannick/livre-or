@@ -78,7 +78,7 @@ if (!empty($_SESSION)) {
                         <img src="../assets/img/utilisateur.png" />
                     </div>
                     <!-- penser a refair une session=>userNumber -->
-                    <p class="login "><?= "{ " . $_SESSION['userId'] . " }" ?></p>
+                    <p class="login "><?= "{ " . $_SESSION['userNumber'] . " }" ?></p>
                 </button>
                 <button class="icon-account" type="submit" name="logout">
                     <img src="../assets/img/deconnexion.png" alt="deconnexion" />
