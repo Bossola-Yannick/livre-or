@@ -1,14 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include_once("../models/Comment.php");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+if (isset($_POST['postNewComment'])) {
+    if ($_POST['newComment'] == "") {
+        $_SESSION['emptyComment'] = "Veuillez remplir le champ commentaire avant de validé !";
+    } else {
+        unset($_SESSION['emptyComment']);
+        $date = new DateTime("now");
+        $_SESSION['date'] = $date;
+        $newDate = $_SESSION['date']->format('Y-m-d H:i:s');
+        $myComment = $_POST['newComment'];
+        $userid = $_SESSION['userId'];
+        $newComment = new Comment();
+        $newComment->create($myComment, $newDate, $userid);
+        header("location: ./livre-or.php");
+    }
+}
 
-<body>
+?>
+<?php include '../components/header.php'; ?>
 
-</body>
+<main class="main-comment">
 
-</html>
+    <section class="new-comment">
+
+        <h1 class="new-comment-title">Merci de donner votre avis</h1>
+        <?php if (isset($_SESSION['emptyComment'])) : ?>
+            <p class="empty-comment"><?= $_SESSION['emptyComment'] ?></p>
+        <?php endif ?>
+        <form action="" method="post" class="new-comment-form">
+            <textarea name="newComment" id="" cols="70" rows="10" placeholder="entrez votre commentaire ici"></textarea>
+            <button type="submit" name="postNewComment" class="button-new-comment">Validé</button>
+        </form>
+    </section>
+
+
+
+</main>
+
+
+
+
+<?php include '../components/footer.php'; ?>
