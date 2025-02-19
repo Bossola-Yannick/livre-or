@@ -125,3 +125,15 @@ textarea {
     width: 80%;
   }
 }
+@media screen and (max-width: 900px) {
+  .admin-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .livre-dor-titre {
+    font-size: 3rem;
+  }
+}

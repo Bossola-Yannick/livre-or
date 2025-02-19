@@ -8,10 +8,12 @@ if (!empty($_SESSION)) {
         $_SESSION = array();
         session_destroy();
         header("Location: index.php");
+        exit();
     }
     if (isset($_POST['user-profil'])) {
         if (isset($_SESSION['userId'])) {
             header("Location: ./pages/profil.php");
+            exit();
         }
     };
 };

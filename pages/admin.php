@@ -1,6 +1,13 @@
 <?php
 include_once("../models/Comment.php");
 session_start();
+
+if ($_SESSION['userRole'] != "admin") {
+    header("location: ../index.php");
+    exit();
+}
+
+
 // initialisation des variable pour la pagination
 $perPage = 10;
 
@@ -28,6 +35,7 @@ if (isset($_POST['search'])) {
 if (isset($_POST['delete'])) {
     $getComments->delete($_POST['delete']);
     header("location: ./admin.php");
+    exit();
 }
 
 ?>
@@ -42,13 +50,13 @@ if (isset($_POST['delete'])) {
                 <input type="text" name="search" placeholder="Rechercher" class="inputSearch">
             </form>
         </section>
-        <h1 class="livre-dor-titre">Vos réaction</h1>
+        <h1 class="livre-dor-titre">Les réactions</h1>
         <?php foreach ($allComments as $comment) : ?>
             <article class="box-comment">
                 <div class="box-comment-top">
                     <p class="comment"><?= $comment['comment'] ?></p>
                 </div>
-                <div class="box-comment-bottom">
+                <div class="box-comment-bottom admin-bottom">
                     <p class="box-comment-info">Posté le : <?= $comment['date'] ?></p>
                     <p class="box-comment-info"> Par : <?= $comment['login'] ?></p>
                     <form action="" method="post">

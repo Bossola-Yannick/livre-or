@@ -22,7 +22,8 @@ if (isset($_POST['submit'])) {
     <section>
         <!-- si connecté, renvoie vers l'accueil -->
         <?php if (isset($_SESSION['userId'])) : ?>
-            <?php header("location: ../index.php"); ?>
+            <?php header("location: ../index.php");
+            exit(); ?>
 
             <!-- sinon, formulaire connexion -->
         <?php else : ?>

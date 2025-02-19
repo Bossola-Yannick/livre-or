@@ -21,7 +21,8 @@ if (isset($_POST['submit'])) {
     <section>
         <!-- si une session est déjà ouverte on ne propose pas de se reconnecter -->
         <?php if (isset($_SESSION['userId'])) : ?>
-            <?php header("location: connexion.php"); ?>
+            <?php header("location: connexion.php");
+            exit(); ?>
             <!-- si pas de session ouverte on propose de se connecter -->
         <?php else : ?>
             <h1 class="titreh1">Inscription</h1>

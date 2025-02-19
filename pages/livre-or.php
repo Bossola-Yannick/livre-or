@@ -33,6 +33,7 @@ if (isset($_POST['search'])) {
 }
 if (isset($_POST['new-comment'])) {
     header("location: ./commentaire.php");
+    exit();
 }
 
 ?>

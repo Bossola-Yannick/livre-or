@@ -15,6 +15,7 @@ if (isset($_POST['postNewComment'])) {
         $newComment = new Comment();
         $newComment->create($myComment, $newDate, $userid);
         header("location: ./livre-or.php");
+        exit();
     }
 }
 

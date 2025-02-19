@@ -4,6 +4,11 @@ session_start();
 include_once("../models/User.php");
 include_once("../models/Comment.php");
 
+if (!isset($_SESSION['userId'])) {
+    header("location: ../index.php");
+    exit();
+}
+
 $newUser = new User();
 $newComment = new Comment();
 $userComment = $newComment->getAllCommentByUser($_SESSION['userId']);
@@ -18,6 +23,7 @@ if (isset($_POST['submitLogin'])) {
         $newLogin = htmlentities($_POST['newLogin']);
         $newUser->updateUserLogin($userLogin, $newLogin);
         header('refresh: 2 ; url=profil.php');
+        exit();
     }
 }
 
@@ -29,6 +35,7 @@ if (isset($_POST['submitPass'])) {
 
         $newUser->updateUserPassword($userId, $currentPass, $newPass);
         header('refresh: 2 ; url=profil.php');
+        exit();
     }
 }
 
@@ -119,7 +126,7 @@ if (isset($_POST['submitPass'])) {
             <section class="commentUser">
 
                 <?php foreach ($userComment as $comment): ?>
-                    <article class="index-box-comment">
+                    <article class="profil-box-comment">
                         <div class="box-comment-top">
                             <p class="comment"><?= $comment['comment'] ?></p>
                         </div>
