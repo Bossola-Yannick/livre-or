@@ -1,4 +1,5 @@
 <?php
+require 'config.php';
 session_start();
 include_once("./models/Comment.php");
 include_once("./models/User.php");
@@ -21,7 +22,6 @@ if (!empty($_SESSION)) {
 $getLastComment = new Comment();
 $lastComment = $getLastComment->getfiveLastComment();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $lastComment = $getLastComment->getfiveLastComment();
 <link rel="stylesheet" href="./assets/css/style_livre-dor.css">
 <link rel=" stylesheet" href="./assets/css/style_index.css">
 
-<title>Livre d'or | S-Quiz Game </title>
+<title>Livre d'or S-Quiz Game </title>
 </head>
 
 <body>

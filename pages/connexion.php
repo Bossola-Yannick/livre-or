@@ -1,4 +1,5 @@
 <?php
+require '../config.php';
 include_once("../models/User.php");
 
 $newUser = new User();

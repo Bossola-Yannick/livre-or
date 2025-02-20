@@ -1,4 +1,5 @@
 <?php
+require '../config.php';
 include_once("../models/Comment.php");
 session_start();
 
