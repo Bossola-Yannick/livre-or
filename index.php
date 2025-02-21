@@ -31,7 +31,7 @@ $lastComment = $getLastComment->getfiveLastComment();
 <link rel="stylesheet" href="./assets/css/style_header-footer.css">
 <link rel="stylesheet" href="./assets/css/style_livre-dor.css">
 <link rel=" stylesheet" href="./assets/css/style_index.css">
-
+<link rel="icon" type="image/x-icon" href="./assets/img/logo-icon.ico">
 <title>Livre d'or S-Quiz Game </title>
 </head>
 
@@ -112,7 +112,7 @@ $lastComment = $getLastComment->getfiveLastComment();
             <!-- lien vers s-quiz game -->
             <p>Toi aussi, fait l'experience : </p>
             <div class="button-index button-index-green">
-                <a href="#"> <span class="pink">→</span> S-quiz Game ! <span class="pink">←</span> </a>
+                <a href="https://yannick-bossola.students-laplateforme.io/squizgame/"> <span class="pink">→</span> S-quiz Game ! <span class="pink">←</span> </a>
             </div>
         </section>
 

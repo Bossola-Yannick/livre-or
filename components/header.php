@@ -22,6 +22,7 @@ if (!empty($_SESSION)) {
     <link rel="stylesheet" href="../assets/css/style_livre-dor.css">
     <link rel="stylesheet" href="../assets/css/style_connexion.css">
     <link rel="stylesheet" href="../assets/css/style_profil.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo-icon.ico">
     <title>S-Quiz Game</title>
 </head>
 
